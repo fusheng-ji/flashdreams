@@ -62,7 +62,10 @@ multiprocessing workers. There are no dynamic per-test contexts. Native
 subprocess support is enabled only during coverage runs and is intended for
 isolated CI environments. Child processes must exit cleanly to save data;
 SIGKILL, crashes and forcibly terminated workers can lose in-flight coverage.
-No additional signal or `os._exit` patches are installed.
+No additional signal or `os._exit` patches are installed. The benchmark harness's
+stdlib-only timeout fixture uses `python -S` so site initialization cannot consume
+its short startup budget. Those dummy scripts execute no project code; normal
+project subprocesses remain instrumented.
 
 Coverage's `relative_files` setting makes checkouts portable. Children that
 start in another working directory may emit shorter or absolute paths. The

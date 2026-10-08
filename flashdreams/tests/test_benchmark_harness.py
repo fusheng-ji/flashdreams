@@ -1241,6 +1241,8 @@ def test_run_benchmark_suite_emits_progress_heartbeat(tmp_path: Path) -> None:
 
 
 def test_scenario_timeout_terminates_descendant_processes(tmp_path: Path) -> None:
+    # These stdlib-only fixtures must start inside the scenario deadline without
+    # site initialization (including subprocess coverage) consuming that budget.
     child_marker = tmp_path / "child_survived.txt"
     spawned_marker = tmp_path / "child_spawned.txt"
     child_script = tmp_path / "child.py"
@@ -1256,7 +1258,7 @@ def test_scenario_timeout_terminates_descendant_processes(tmp_path: Path) -> Non
     parent_script.write_text(
         "import subprocess, sys, time\n"
         "from pathlib import Path\n"
-        "subprocess.Popen([sys.executable, sys.argv[1], sys.argv[2]])\n"
+        "subprocess.Popen([sys.executable, '-S', sys.argv[1], sys.argv[2]])\n"
         "Path(sys.argv[3]).write_text('spawned', encoding='utf-8')\n"
         "time.sleep(60)\n",
         encoding="utf-8",
@@ -1266,6 +1268,7 @@ def test_scenario_timeout_terminates_descendant_processes(tmp_path: Path) -> Non
         name="Timeout runner",
         command=(
             sys.executable,
+            "-S",
             str(parent_script),
             str(child_script),
             str(child_marker),
