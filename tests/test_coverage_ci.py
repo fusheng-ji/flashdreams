@@ -65,6 +65,20 @@ def prepare(root: Path) -> None:
     (root / "uv.lock").write_text("test lock")
     shutil.copy(ROOT / "tests/coverage_ci.py", root / "tests/coverage_ci.py")
     (root / "apps/demo/unexecuted.py").write_text("value = 99\n")
+    for name in (
+        "tests/test_sentinel.py",
+        "benchmarks/sentinel.py",
+        "fixtures/sentinel.py",
+        "protos/sentinel_pb2.py",
+        "3rdparty/sentinel.py",
+        "build/sentinel.py",
+    ):
+        path = root / "apps/demo" / name
+        path.parent.mkdir(exist_ok=True)
+        path.write_text("excluded_sentinel = 99\n")
+    tool = root / "flashdreams/tools/benchmarks/runner.py"
+    tool.parent.mkdir()
+    tool.write_text("production_tool = 99\n")
     (root / "apps/demo/worker.py").write_text("""import sys
 
 def thread_work():
@@ -161,7 +175,10 @@ def test_processes_contexts_denominator_and_portable_merge() -> None:
         assert status["status"] == "complete"
         files = json.loads((moved / "report/total/coverage.json").read_text())["files"]
         assert files["apps/demo/unexecuted.py"]["missing_lines"] == [1]
-        assert not any("test_sample" in file for file in files)
+        assert not [
+            file for file in files if "test_sample" in file or "sentinel" in file
+        ]
+        assert files["flashdreams/tools/benchmarks/runner.py"]["missing_lines"] == [1]
         worker = files["apps/demo/worker.py"]
         assert {4, 7, 11, 12, 15} <= set(worker["executed_lines"])
         assert worker["summary"]["missing_branches"] == 0

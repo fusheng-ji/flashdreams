@@ -257,6 +257,8 @@ def report(inputs: Path, output: Path) -> int:
             cov = coverage.Coverage(
                 config_file="pyproject.toml", data_file=str(output / ".coverage")
             )
+            # Apply the same exclusions after relocating child-process paths.
+            cov.set_option("report:omit", cov.get_option("run:omit"))
             for shard in accepted:
                 data = coverage.CoverageData(basename=shard)
                 data.read()

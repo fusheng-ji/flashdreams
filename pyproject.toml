@@ -242,7 +242,8 @@ patch = ["subprocess"]
 context = "${FLASHDREAMS_COVERAGE_CONTEXT-local}"
 omit = [
     "*/tests/*", "*/test_v2/*", "*/test_*.py", "*/conftest.py",
-    "*/benchmarks/*", "*/benchmark_*.py", "*/fixtures/*",
+    "*/apps/*/benchmarks/*", "*/integrations_v2/*/benchmarks/*",
+    "*/benchmark_*.py", "*/fixtures/*",
     "*/protos/*_pb2*", "*/3rdparty/*", "*/_cpp/*",
     "*/baseline_fastvideo/*", "*/baseline_lightx2v/*", "*/parity_check*/*",
     "*/build/*", "*/dist/*", "*/.venv*/*", "*/__pycache__/*",
