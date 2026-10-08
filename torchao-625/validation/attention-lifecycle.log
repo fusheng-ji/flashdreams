@@ -1,0 +1,4 @@
+W1008 21:14:42.730000 2560832 torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+<REPO>/.venv-torchao/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/autograd_cache.py:542: UserWarning: Float8Tensor does not implement _stable_hash_for_caching. For PT2-compatible tensor subclasses, it is recommended to implement _stable_hash_for_caching(self) -> str for stable AOT autograd caching.
+  warn_once(
+{"strict_checkpoint": true, "source_reload": true, "migration": true, "graph_recapture": true, "retained_output": true, "local_options": {"emulate_precision_casts": true, "eager_numerics.division_rounding": true}}

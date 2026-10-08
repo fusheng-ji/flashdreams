@@ -1,0 +1,20 @@
+NVIDIA FlashDreams
+Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This product is licensed under the Apache License, Version 2.0;
+the full license text is reproduced in LICENSE at the repository root
+and in LICENSES/Apache-2.0.txt.
+
+Two subtrees physically vendored into this repository carry
+different OSI-approved licenses; full texts are reproduced under
+LICENSES/:
+
+  - integrations_v2/omnidreams/impl/ludus-renderer/ludus_renderer/_cpp/cudaraster/
+        BSD-3-Clause  (see LICENSES/BSD-3-Clause.txt)
+  - integrations_v2/omnidreams/impl/ludus-renderer/ludus_renderer/_cpp/
+    cudaraster/framework/3rdparty/lodepng/{lodepng.h,lodepng.cpp}
+        Zlib          (see LICENSES/Zlib.txt)
+
+Third-party software attributions, source-level redistribution
+disclosures, and the full per-dependency license inventory are
+documented in THIRD-PARTY-NOTICES at the repository root.

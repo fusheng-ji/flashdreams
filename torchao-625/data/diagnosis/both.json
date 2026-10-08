@@ -1,0 +1,74 @@
+{
+  "policy": "both",
+  "options": {
+    "emulate_precision_casts": true,
+    "eager_numerics.division_rounding": true
+  },
+  "torch": "2.12.1+cu130",
+  "torchao": "0.18.0",
+  "gpu": "NVIDIA B200",
+  "seed": 42,
+  "shape": [
+    4800,
+    2048,
+    2048
+  ],
+  "scales": {
+    "exact": true,
+    "mismatches": 0,
+    "max_abs": 0.0,
+    "relative_l2": 0.0,
+    "mismatch_fraction": 0.0
+  },
+  "qdata": {
+    "exact": true,
+    "mismatches": 0,
+    "max_abs": 0.0,
+    "relative_l2": 0.0,
+    "mismatch_fraction": 0.0
+  },
+  "identical_inputs_gemm": {
+    "exact": true,
+    "mismatches": 0,
+    "max_abs": 0.0,
+    "relative_l2": 0.0,
+    "mismatch_fraction": 0.0
+  },
+  "crossed_quantization": {
+    "exact": true,
+    "mismatches": 0,
+    "max_abs": 0.0,
+    "relative_l2": 0.0,
+    "mismatch_fraction": 0.0
+  },
+  "eager_decomposition": {
+    "exact": true,
+    "mismatches": 0,
+    "max_abs": 0.0,
+    "relative_l2": 0.0,
+    "mismatch_fraction": 0.0
+  },
+  "full_projection": {
+    "exact": true,
+    "mismatches": 0,
+    "max_abs": 0.0,
+    "relative_l2": 0.0,
+    "mismatch_fraction": 0.0
+  },
+  "quantization_examples": [],
+  "subsequent_default": {
+    "exact": false,
+    "mismatches": 6717590,
+    "max_abs": 5.0,
+    "relative_l2": 0.011522477492690086,
+    "mismatch_fraction": 0.25724467635154724
+  },
+  "global_before": [
+    false,
+    false
+  ],
+  "global_after": [
+    false,
+    false
+  ]
+}
