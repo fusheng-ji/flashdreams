@@ -1,5 +1,7 @@
 Refs NVIDIA/flashdreams#625
 
+## Summary
+
 This component investigation adds an experimental, explicitly selected torchao
 FP8 backend for accelerated attention output projections. The default backend,
 checkpoint parameters and BF16 fallback remain unchanged; torchao is optional
@@ -58,7 +60,7 @@ memory advantage over BF16. Original and corrected sweeps used different
 allocations, so their timing difference is not a controlled estimate of option
 cost. Model quality and whole-model benefit remain untested; no generation was run.
 
-## Validation
+## Testing
 
 - 44 CPU tests; 15 GPU regressions; 6 compiled GPU cases spanning seeds 0/1/42
   and bias/no bias, including 3D/zero inputs, shape recompilation and old-output ownership.
@@ -70,6 +72,9 @@ cost. Model quality and whole-model benefit remain untested; no generation was r
   breaks. Subsequent default compilation reproduces the original numerical
   difference, verifying local-option isolation.
 - Ruff, targeted type checks and documentation build passed.
+
+These are scoped component checks. They do not establish a passing full-repository
+`pre-commit run -a`, full `pytest -m ci_cpu`, or upstream PR CI run.
 
 ## Reproducible evidence
 
