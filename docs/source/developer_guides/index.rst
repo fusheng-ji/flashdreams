@@ -79,6 +79,7 @@ generated clip, see :doc:`/quickstart/index`.
    runner_slugs
    new_integration
    local_benchmarks
+   ci_coverage
    flashdreams_accelerated
 
 ..

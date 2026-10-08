@@ -179,6 +179,7 @@ markers = [
 ]
 
 [dependency-groups]
+coverage = ["coverage[toml]>=7.10,<8"]
 # Test-specific dependencies shared across workspace members. Listed here so
 # that the type checker (ty) can resolve imports in test files and in
 # flashdreams/_pytest_plugins.
@@ -229,3 +230,25 @@ docs-ci = [
 dev = [
     "python-dotenv>=1.2.2",
 ]
+
+# Opt-in CI diagnostics; ordinary pytest runs are not instrumented.
+[tool.coverage.run]
+branch = true
+parallel = true
+relative_files = true
+source_dirs = ["flashdreams/flashdreams", "flashdreams/tools", "apps", "integrations_v2"]
+concurrency = ["thread", "multiprocessing"]
+patch = ["subprocess"]
+context = "${FLASHDREAMS_COVERAGE_CONTEXT-local}"
+omit = [
+    "*/tests/*", "*/test_v2/*", "*/test_*.py", "*/conftest.py",
+    "*/benchmarks/*", "*/benchmark_*.py", "*/fixtures/*",
+    "*/protos/*_pb2*", "*/3rdparty/*", "*/_cpp/*",
+    "*/baseline_fastvideo/*", "*/baseline_lightx2v/*", "*/parity_check*/*",
+    "*/build/*", "*/dist/*", "*/.venv*/*", "*/__pycache__/*",
+]
+
+[tool.coverage.report]
+include_namespace_packages = true
+show_missing = true
+precision = 2

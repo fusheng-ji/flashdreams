@@ -46,3 +46,10 @@ is skipped.
 | `FLASHDREAMS_TRITON_CACHE_DIR` | `${HOME}/.cache/triton` | Host dir mounted to `/root/.cache/triton`; persisted across runs to avoid recompiling Triton kernels (also exported as `TRITON_CACHE_DIR`). |
 
 Each script also has a top-of-file usage block for the full set of CLI flags.
+
+## Opt-in coverage diagnostics
+
+CI coverage collection, artifacts and matched overhead experiments are described
+in [CI coverage diagnostics](../docs/source/developer_guides/ci_coverage.md).
+Install the locked `coverage` development group to use `tests/coverage_ci.py`;
+normal local pytest commands do not enable coverage.
