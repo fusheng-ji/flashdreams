@@ -275,3 +275,25 @@ def test_uninstrumented_control_has_same_outcomes_without_process_data() -> None
         assert json.loads((root / "control/outcomes.json").read_text()) == json.loads(
             (root / "raw/cpu/outcomes.json").read_text()
         )
+
+
+def test_manual_marker_is_not_counted_as_a_pass_in_pytest_summary() -> None:
+    with TemporaryDirectory() as directory:
+        root = Path(directory)
+        prepare(root)
+        config = root / "pyproject.toml"
+        config.write_text(
+            config.read_text().replace(
+                "[tool.pytest.ini_options]",
+                '[tool.pytest.ini_options]\naddopts = "-p pytest_manual_marker"',
+            )
+        )
+        test = root / "tests/test_sample.py"
+        test.write_text(
+            test.read_text()
+            + "\n@pytest.mark.manual\ndef test_manual():\n    assert False\n"
+        )
+        collect(root, "cpu")
+        metadata = json.loads((root / "raw/cpu/metadata.json").read_text())
+        assert metadata["pytest_summary"] == {"passed": 1, "manual": 1}
+        assert metadata["manual_nodes"] == ["tests/test_sample.py::test_manual"]

@@ -13,7 +13,9 @@ FlashDreams runtime dependency. CPU CI uses Python 3.12 and GPU CI uses Python
 3.11. Keep their existing dependency profiles, test selectors and model-quality
 environment variables from `.github/workflows/ci.yml`.
 
-From the repository root, in the corresponding installed environment:
+From the repository root, activate the corresponding installed environment
+first, or invoke each command through `uv run --no-sync`. This also ensures
+subprocesses that invoke `python3` resolve to the same environment:
 
 ```bash
 python tests/coverage_ci.py run --suite cpu --output artifacts/coverage-673/raw/cpu
@@ -23,7 +25,7 @@ python tests/coverage_ci.py report --inputs artifacts/coverage-673/raw --output 
 ```
 
 Each run requires a new output directory and preserves pytest's exit status.
-It records raw `.coverage.*` process files, JUnit, a test log, per-case outcomes,
+It records raw `.coverage.*` process files, JUnit, a test log, per-case JUnit outcomes, pytest summary counts and manual-test nodes,
 and provenance: commit, Python source/configuration/lock digests, coverage and
 Python versions, selector, timing and exit status. A run interrupted before
 completion leaves its initial metadata with `status: running` and all evidence
@@ -103,6 +105,11 @@ cache directories. Do not enable real-model opt-in tests absent from normal CI.
 Do not silently replace full suites with selected tests after a failure.
 
 Compare collected counts and per-case outcomes as well as wall and CPU time.
+The test timer includes child interpreter startup, coverage/pytest startup,
+collection and execution; provenance preparation and report export are outside
+that interval. Both control and coverage sessions use the same recorder.
+`pytest_summary` and `manual_nodes` preserve the manual-marker plugin's custom
+results, which are not standard JUnit skips and otherwise resemble passed cases.
 `peak_child_rss_kib` is Linux's largest child-process resident-set high-water
 mark, not the sum of simultaneously resident workers. Report this limitation;
 it is neither GPU memory nor allocation-wide host memory. Report export time

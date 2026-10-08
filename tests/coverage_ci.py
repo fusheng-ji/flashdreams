@@ -122,6 +122,19 @@ def run_suite(
         peak_child_rss_kib=after.ru_maxrss,
     )
     log_text = (output / "pytest.log").read_text(errors="replace")
+    log_text = re.sub(r"\x1b\[[0-9;]*m", "", log_text)
+    # pytest-manual-marker emits empty JUnit cases, not standard skips.
+    summaries = re.findall(r"^=+ (.*) =+$", log_text, re.MULTILINE)
+    metadata["pytest_summary"] = {
+        name: int(count)
+        for count, name in re.findall(
+            r"(\d+) (passed|failed|skipped|manual|deselected|errors?)\b",
+            summaries[-1] if summaries else "",
+        )
+    }
+    metadata["manual_nodes"] = re.findall(
+        r"^(\S+\.py::.+?) MANUAL\b", log_text, re.MULTILINE
+    )
     collected = re.findall(r"collected (\d+) items?", log_text)
     metadata["collected"] = int(collected[-1]) if collected else None
     try:
