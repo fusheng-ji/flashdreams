@@ -235,6 +235,10 @@ def report(inputs: Path, output: Path) -> int:
                                 else path.endswith("/" + name)
                             )
                         ]
+                        # An absolute path can also end in a shorter tracked path
+                        # (for example tools/__init__.py). Prefer its full suffix.
+                        if Path(name).is_absolute() and candidates:
+                            candidates = [max(candidates, key=len)]
                         if len(candidates) != 1 or ".." in Path(name).parts:
                             raise ValueError("unknown or ambiguous source path")
                         canonical = candidates[0]
@@ -262,6 +266,7 @@ def report(inputs: Path, output: Path) -> int:
         f"# CI coverage diagnostics ({status})",
         "",
         "Python line/branch execution only; not CUDA/Triton instruction coverage.",
+        "In partial reports, suite-exclusive counts describe available data only; an absent suite cannot establish exclusivity.",
         "",
     ]
     reports: dict[str, Any] = {}

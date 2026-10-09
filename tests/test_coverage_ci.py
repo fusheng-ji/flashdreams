@@ -166,8 +166,21 @@ def test_processes_contexts_denominator_and_portable_merge() -> None:
     with TemporaryDirectory() as directory:
         root = Path(directory) / "original"
         prepare(root)
+        # A shorter tracked suffix must not make the full absolute path ambiguous.
+        (root / "worker.py").write_text("not_the_measured_file = True\n")
+        command(root, "git", "add", "worker.py")
         collect(root, "cpu")
         collect(root, "gpu")
+        # Namespace file discovery in child processes can save absolute paths.
+        import coverage
+
+        for suite in ("cpu", "gpu"):
+            data = coverage.CoverageData(
+                basename=str(root / f"raw/{suite}/.coverage.absolute")
+            )
+            data.set_context(suite)
+            data.add_arcs({str(root / "apps/demo/worker.py"): [(3, 4)]})
+            data.write()
         moved = Path(directory) / "moved"
         shutil.copytree(root, moved)
         shutil.rmtree(root)

@@ -69,7 +69,8 @@ project subprocesses remain instrumented.
 
 Coverage's `relative_files` setting makes checkouts portable. Children that
 start in another working directory may emit shorter or absolute paths. The
-report maps only unique tracked source suffixes through the public
+report uses the longest tracked suffix for absolute paths and requires unique
+suffixes for shortened relative paths, through the public
 `CoverageData.update` API; unknown or ambiguous paths make the report partial.
 No coverage calculations or third-party internals are reimplemented.
 
