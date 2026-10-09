@@ -181,7 +181,7 @@ def test_processes_contexts_denominator_and_portable_merge() -> None:
                 basename=str(root / f"raw/{suite}/.coverage.absolute")
             )
             data.set_context(suite)
-            data.add_arcs({str(root / "apps/demo/worker.py"): [(3, 4)]})
+            data.add_arcs({str(root / "apps/demo/worker.py"): [(-1, 1)]})
             data.write()
         moved = Path(directory) / "moved"
         shutil.copytree(root, moved)
