@@ -51,7 +51,8 @@ retained for 30 days; each job summary links to its artifact.
 ## Measurement scope and limitations
 
 The explicit scope and exclusions are in `[tool.coverage]` in `pyproject.toml`:
-core library, production tools (including the reusable benchmark harness), applications and maintained
+core library, production tools in `flashdreams/tools/` and `tools/` (including the
+reusable benchmark harness and offline packaging), applications and maintained
 integrations. Namespace scanning includes unexecuted Python modules in the
 denominator. Tests, fixtures, benchmarks, generated protobuf stubs, vendored
 native sources, build outputs and local environments are excluded. Maintained

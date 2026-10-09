@@ -52,6 +52,7 @@ def prepare(root: Path) -> None:
         "apps/demo",
         "flashdreams/flashdreams",
         "flashdreams/tools",
+        "tools",
         "integrations_v2",
     ):
         (root / directory).mkdir(parents=True)
@@ -65,6 +66,7 @@ def prepare(root: Path) -> None:
     (root / "uv.lock").write_text("test lock")
     shutil.copy(ROOT / "tests/coverage_ci.py", root / "tests/coverage_ci.py")
     (root / "apps/demo/unexecuted.py").write_text("value = 99\n")
+    (root / "tools/unexecuted.py").write_text("production_tool = 99\n")
     for name in (
         "tests/test_sentinel.py",
         "benchmarks/sentinel.py",
@@ -188,6 +190,7 @@ def test_processes_contexts_denominator_and_portable_merge() -> None:
         assert status["status"] == "complete"
         files = json.loads((moved / "report/total/coverage.json").read_text())["files"]
         assert files["apps/demo/unexecuted.py"]["missing_lines"] == [1]
+        assert files["tools/unexecuted.py"]["missing_lines"] == [1]
         assert not [
             file for file in files if "test_sample" in file or "sentinel" in file
         ]
