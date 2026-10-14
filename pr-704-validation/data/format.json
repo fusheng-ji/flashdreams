@@ -1,0 +1,24 @@
+{
+  "pr": 704,
+  "head": "77ecedd338bd0b184571cf30186031b49be0025b",
+  "name": "format",
+  "command": [
+    "<VENV>/bin/ruff",
+    "format",
+    "--check",
+    "flashdreams/flashdreams/runtime_v2/serving/browser_input.py",
+    "flashdreams/flashdreams/runtime_v2/serving/webrtc_server.py",
+    "flashdreams/test_v2/test_browser_input.py",
+    "flashdreams/test_v2/test_webrtc_client_window.py"
+  ],
+  "cwd": "<CHECKOUT>",
+  "env": {
+    "PYTHONPATH": "<CHECKOUT>/flashdreams",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "exit_code": 0,
+  "seconds": 0.26102428999729455,
+  "status": "passed",
+  "log": "704/format.log"
+}

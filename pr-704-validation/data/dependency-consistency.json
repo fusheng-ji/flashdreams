@@ -1,0 +1,22 @@
+{
+  "pr": 704,
+  "head": "77ecedd338bd0b184571cf30186031b49be0025b",
+  "name": "dependency-consistency",
+  "command": [
+    "<HOME>/.local/bin/uv",
+    "pip",
+    "check",
+    "--python",
+    "<VENV>/bin/python"
+  ],
+  "cwd": "<CHECKOUT>",
+  "env": {
+    "PYTHONPATH": "<CHECKOUT>/flashdreams",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "exit_code": 1,
+  "seconds": 1.20001486397814,
+  "status": "failed",
+  "log": "704/dependency-consistency.log"
+}

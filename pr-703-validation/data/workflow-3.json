@@ -1,0 +1,20 @@
+{
+  "pr": 703,
+  "head": "5d8163b9324927a8f69e5b46c385bcb8367f5013",
+  "name": "workflow-3",
+  "command": [
+    "bash",
+    "-c",
+    "set -euo pipefail\nif ! grep -qE \"Developer.{1,40}Certificate.{1,10}of.{1,10}Origin|Signed-off-by|sign-off\" CONTRIBUTING.md; then\n  echo \"::error::CONTRIBUTING.md does not reference DCO / sign-off\"\n  exit 1\nfi\necho \"OK: CONTRIBUTING.md references DCO / sign-off\"\n"
+  ],
+  "cwd": "<CHECKOUT>",
+  "env": {
+    "PYTHONPATH": "<CHECKOUT>/flashdreams",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "exit_code": 0,
+  "seconds": 0.018156781035941094,
+  "status": "passed",
+  "log": "703/workflow-3.log"
+}

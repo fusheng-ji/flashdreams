@@ -1,0 +1,26 @@
+{
+  "pr": 704,
+  "head": "77ecedd338bd0b184571cf30186031b49be0025b",
+  "name": "cuda",
+  "command": [
+    "<VENV>/bin/python",
+    "-m",
+    "pytest",
+    "flashdreams/test_v2/test_webrtc_client_window_cuda.py",
+    "-m",
+    "ci_gpu",
+    "-q",
+    "-rs",
+    "--junitxml=<REPO>/artifacts/experiment-supplement-20261013/704/cuda.xml"
+  ],
+  "cwd": "<CHECKOUT>",
+  "env": {
+    "PYTHONPATH": "<CHECKOUT>/flashdreams",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "exit_code": 0,
+  "seconds": 52.4004691959708,
+  "status": "passed",
+  "log": "704/cuda.log"
+}

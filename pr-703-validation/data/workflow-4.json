@@ -1,0 +1,20 @@
+{
+  "pr": 703,
+  "head": "5d8163b9324927a8f69e5b46c385bcb8367f5013",
+  "name": "workflow-4",
+  "command": [
+    "bash",
+    "-c",
+    "set -euo pipefail\nexcludes='^integrations_v2/omnidreams/impl/ludus-renderer/ludus_renderer/_cpp/cudaraster/'\nexcludes+='|^integrations_v2/omnidreams/impl/grpc/protos/.*_pb2'\nmissing_files=()\nlong_header_files=()\nwhile IFS= read -r f; do\n  if printf '%s\\n' \"$f\" | grep -qE \"$excludes\"; then\n    continue\n  fi\n  if ! head -n 20 \"$f\" | grep -q \"SPDX-License-Identifier\"; then\n    missing_files+=(\"$f\")\n  fi\n  if head -n 20 \"$f\" | grep -qE '^[[:space:]]*(#|//|/\\*|\\*)[[:space:]]*Licensed under the Apache License'; then\n    long_header_files+=(\"$f\")\n  fi\ndone < <(git ls-files \\\n           '*.py' '*.pyx' '*.pyi' \\\n           '*.c' '*.cc' '*.cpp' '*.cxx' \\\n           '*.h' '*.hh' '*.hpp' '*.hxx' \\\n           '*.cu' '*.cuh' '*.inl' \\\n           '*.sh' '*.proto' \\\n           'Dockerfile' '*/Dockerfile' '**/Dockerfile' '*.dockerfile')\nfor f in \"${long_header_files[@]}\"; do\n  echo \"::error file=$f,line=1,title=Long SPDX header::Keep all SPDX copyright and license tags; remove the following Apache boilerplate.\"\ndone\nif [ \"${#missing_files[@]}\" -gt 0 ]; then\n  # Print the list to the raw log so it shows in the step output,\n  # then emit GitHub annotations so the offending files appear in\n  # the PR \"Files changed\" review tab too.\n  echo\n  echo \"The following ${#missing_files[@]} source file(s) are missing an\"\n  echo \"inline 'SPDX-License-Identifier' tag in their first 20 lines:\"\n  echo\n  for f in \"${missing_files[@]}\"; do\n    echo \"  - $f\"\n  done\n  echo\n  # REUSE-IgnoreStart\n  echo \"Add a header like (Python/shell comment style):\"\n  echo \"  # SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.\"\n  echo \"  # SPDX-License-Identifier: Apache-2.0\"\n  echo \"C/C++/CUDA files use '//' line comments with the same two tags.\"\n  echo\n  for f in \"${missing_files[@]}\"; do\n    echo \"::error file=$f,line=1,title=Missing SPDX header::Add 'SPDX-License-Identifier: Apache-2.0' (and matching SPDX-FileCopyrightText) to the first 20 lines of this file.\"\n  done\n  # REUSE-IgnoreEnd\n  echo \"::error title=Missing SPDX headers::${#missing_files[@]} source file(s) missing inline SPDX header\"\n  exit 1\nfi\nif [ \"${#long_header_files[@]}\" -gt 0 ]; then\n  exit 1\nfi\necho \"OK: every tracked source file carries an inline SPDX-License-Identifier\"\n"
+  ],
+  "cwd": "<CHECKOUT>",
+  "env": {
+    "PYTHONPATH": "<CHECKOUT>/flashdreams",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "exit_code": 0,
+  "seconds": 61.076593881007284,
+  "status": "passed",
+  "log": "703/workflow-4.log"
+}

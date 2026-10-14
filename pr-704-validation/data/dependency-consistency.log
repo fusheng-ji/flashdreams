@@ -1,0 +1,4 @@
+Using Python 3.12.13 environment at: <VENV>
+Checked 127 packages in 95ms
+Found 1 incompatibility
+The package `torch` requires `setuptools<82`, but `83.0.0` is installed

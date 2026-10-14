@@ -1,0 +1,25 @@
+{"type": "keyboard", "fields": {"timestamp": 3366393, "key": "r", "state": "Pressed"}}
+{"type": "keyboard", "fields": {"timestamp": 3489272, "key": "r", "state": "Released"}}
+{"type": "mouse", "fields": {"timestamp": 3664187, "action": "move", "x": 0.5, "y": 0.5, "button": 0, "pressed": false, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "focus", "fields": {"timestamp": 3682084, "focused": true}}
+{"type": "mouse", "fields": {"timestamp": 3682255, "action": "button", "x": 0.5, "y": 0.5, "button": 0, "pressed": true, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "mouse", "fields": {"timestamp": 3682342, "action": "button", "x": 0.5, "y": 0.5, "button": 0, "pressed": false, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "mouse", "fields": {"timestamp": 3698074, "action": "button", "x": 0.5, "y": 0.5, "button": 0, "pressed": true, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "touch", "fields": {"timestamp": 3698223, "action": "start", "touch_id": 0, "x": 0.5, "y": 0.5, "pressure": 1.0, "primary": true}}
+{"type": "mouse", "fields": {"timestamp": 3698314, "action": "button", "x": 0.5, "y": 0.5, "button": 0, "pressed": false, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "touch", "fields": {"timestamp": 3698376, "action": "end", "touch_id": 0, "x": 0.5, "y": 0.5, "pressure": 1.0, "primary": false}}
+{"type": "focus", "fields": {"timestamp": 3754624, "focused": false}}
+{"type": "focus", "fields": {"timestamp": 3892854, "focused": true}}
+{"type": "keyboard", "fields": {"timestamp": 3950243, "key": "q", "state": "Released"}}
+{"type": "mouse", "fields": {"timestamp": 4004301, "action": "wheel", "x": 0.5, "y": 0.5, "button": 0, "pressed": false, "wheel_x": 0.0, "wheel_y": -0.25}}
+{"type": "focus", "fields": {"timestamp": 4050515, "focused": true}}
+{"type": "touch", "fields": {"timestamp": 4148732, "action": "cancel", "touch_id": 99, "x": 0.3, "y": 0.4, "pressure": 0.0, "primary": false}}
+{"type": "gamepad", "fields": {"timestamp": 4203486, "action": "state", "index": 1, "controller_id": "", "mapping": "", "axes": [-0.5, 0.25], "buttons": [0.0, 1.0], "pressed": [false, true]}}
+{"type": "game_wheel", "fields": {"timestamp": 4301662, "action": "state", "index": 0, "controller_id": "", "steering": 0.25, "throttle": 0.8, "brake": 0.1, "clutch": 0.0, "buttons": []}}
+{"type": "xr_controller", "fields": {"timestamp": 4352008, "action": "state", "handedness": "right", "controller_id": "", "axes": [], "buttons": [], "pressed": [], "position": [1.0, 2.0, 3.0], "orientation": [0.0, 0.0, 0.0, 1.0]}}
+{"type": "reset", "fields": {"timestamp": 4407667}}
+{"type": "keyboard", "fields": {"timestamp": 5951559, "key": "w", "state": "Pressed"}}
+{"type": "keyboard", "fields": {"timestamp": 6006492, "key": "w", "state": "Released"}}
+{"type": "keyboard", "fields": {"timestamp": 7001430, "key": "w", "state": "Pressed"}}
+{"type": "keyboard", "fields": {"timestamp": 7002802, "key": "w", "state": "Released"}}
+{"type": "close", "fields": {"timestamp": 7682934}}

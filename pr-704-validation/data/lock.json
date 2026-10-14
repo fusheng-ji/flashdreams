@@ -1,0 +1,20 @@
+{
+  "pr": 704,
+  "head": "77ecedd338bd0b184571cf30186031b49be0025b",
+  "name": "lock",
+  "command": [
+    "<HOME>/.local/bin/uv",
+    "lock",
+    "--check"
+  ],
+  "cwd": "<CHECKOUT>",
+  "env": {
+    "PYTHONPATH": "<CHECKOUT>/flashdreams",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "exit_code": 0,
+  "seconds": 1.1011820069979876,
+  "status": "passed",
+  "log": "704/lock.log"
+}

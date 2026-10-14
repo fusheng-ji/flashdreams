@@ -1,0 +1,28 @@
+{
+  "pr": 704,
+  "head": "77ecedd338bd0b184571cf30186031b49be0025b",
+  "name": "cpu",
+  "command": [
+    "<VENV>/bin/python",
+    "-m",
+    "pytest",
+    "tests/test_dependency_policy.py",
+    "flashdreams/test_v2/test_browser_input.py",
+    "flashdreams/test_v2/test_webrtc_client_window.py",
+    "-m",
+    "ci_cpu",
+    "-q",
+    "-rs",
+    "--junitxml=<REPO>/artifacts/experiment-supplement-20261013/704/cpu.xml"
+  ],
+  "cwd": "<CHECKOUT>",
+  "env": {
+    "PYTHONPATH": "<CHECKOUT>/flashdreams",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "exit_code": 0,
+  "seconds": 47.112896069011185,
+  "status": "passed",
+  "log": "704/cpu.log"
+}

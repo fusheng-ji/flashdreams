@@ -1,0 +1,20 @@
+{
+  "pr": 703,
+  "head": "5d8163b9324927a8f69e5b46c385bcb8367f5013",
+  "name": "workflow-1",
+  "command": [
+    "bash",
+    "-c",
+    "set -euo pipefail\n# Sentinel strings unique to the canonical Apache-2.0 text \u2014 must\n# appear in LICENSE even with any preamble in front.\nfor line in \\\n  \"Apache License\" \\\n  \"Version 2.0, January 2004\" \\\n  \"http://www.apache.org/licenses/\" \\\n  \"END OF TERMS AND CONDITIONS\" \\\n  \"APPENDIX: How to apply the Apache License to your work.\"\ndo\n  if ! grep -qF \"$line\" LICENSE; then\n    echo \"::error file=LICENSE::missing canonical Apache-2.0 sentinel: $line\"\n    exit 1\n  fi\ndone\n# LICENSES/Apache-2.0.txt must remain the canonical Apache-2.0\n# text (no preamble) so REUSE tooling can reuse it verbatim.\nfor line in \\\n  \"Apache License\" \\\n  \"Version 2.0, January 2004\" \\\n  \"END OF TERMS AND CONDITIONS\"\ndo\n  if ! grep -qF \"$line\" LICENSES/Apache-2.0.txt; then\n    echo \"::error file=LICENSES/Apache-2.0.txt::missing canonical Apache-2.0 sentinel: $line\"\n    exit 1\n  fi\ndone\necho \"OK: LICENSE and LICENSES/Apache-2.0.txt carry canonical Apache-2.0 text\"\n"
+  ],
+  "cwd": "<CHECKOUT>",
+  "env": {
+    "PYTHONPATH": "<CHECKOUT>/flashdreams",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "exit_code": 0,
+  "seconds": 0.0493012240040116,
+  "status": "passed",
+  "log": "703/workflow-1.log"
+}

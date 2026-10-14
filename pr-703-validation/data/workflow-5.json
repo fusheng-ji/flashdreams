@@ -1,0 +1,20 @@
+{
+  "pr": 703,
+  "head": "5d8163b9324927a8f69e5b46c385bcb8367f5013",
+  "name": "workflow-5",
+  "command": [
+    "bash",
+    "-c",
+    "set -euo pipefail\n# Catches the NVIDIA proprietary banner that pre-dates the\n# Apache-2.0 distribution decision. Excludes the workflow file\n# itself (which references the strings as grep patterns) and the\n# maintaining-oss-state skill (which documents these patterns).\nif git grep -nI \\\n     -e \"NVIDIA CORPORATION is strictly prohibited\" \\\n     -e \"proprietary rights in and to this software\" \\\n     -- \\\n     ':!.github/workflows/reuse-lint.yml' \\\n     ':!agentic/skills/maintaining-oss-state/SKILL.md'; then\n  echo \"::error::NVIDIA proprietary banner found in repository\"\n  exit 1\nfi\necho \"OK: no legacy proprietary banners\"\n"
+  ],
+  "cwd": "<CHECKOUT>",
+  "env": {
+    "PYTHONPATH": "<CHECKOUT>/flashdreams",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "OMP_NUM_THREADS": "4"
+  },
+  "exit_code": 0,
+  "seconds": 0.7084909619879909,
+  "status": "passed",
+  "log": "703/workflow-5.log"
+}
