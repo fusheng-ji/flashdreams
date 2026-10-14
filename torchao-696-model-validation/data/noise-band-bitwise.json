@@ -1,0 +1,86 @@
+[
+  {
+    "resolution": "1280x704",
+    "pair": "cold0-warm0",
+    "same_compile_cache": true,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1280x704",
+    "pair": "cold0-warm1",
+    "same_compile_cache": true,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1280x704",
+    "pair": "warm0-warm1",
+    "same_compile_cache": true,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1280x704",
+    "pair": "cold0-cold1",
+    "same_compile_cache": false,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1280x704",
+    "pair": "cold0-cold2",
+    "same_compile_cache": false,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1280x704",
+    "pair": "cold1-cold2",
+    "same_compile_cache": false,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1168x640",
+    "pair": "cold0-warm0",
+    "same_compile_cache": true,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1168x640",
+    "pair": "cold0-warm1",
+    "same_compile_cache": true,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1168x640",
+    "pair": "warm0-warm1",
+    "same_compile_cache": true,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1168x640",
+    "pair": "cold0-cold1",
+    "same_compile_cache": false,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1168x640",
+    "pair": "cold0-cold2",
+    "same_compile_cache": false,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  },
+  {
+    "resolution": "1168x640",
+    "pair": "cold1-cold2",
+    "same_compile_cache": false,
+    "bitwise_equal_labels": 0,
+    "labels": 9
+  }
+]
