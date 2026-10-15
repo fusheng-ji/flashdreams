@@ -1,4 +1,34 @@
-# Re-verification of NVIDIA/flashdreams#704 at head `77ecedd`
+# Re-verification of NVIDIA/flashdreams#704
+
+Two heads were verified: `77ecedd` (original merge head, results in `data/`) and `3324ea3` (after merging upstream main, results in [head-3324ea3/](head-3324ea3)). The sections below describe `77ecedd`; the new-head results are summarized first.
+
+## After merging upstream main: head `3324ea3`
+
+Upstream added clickable link regions to the browser-message handler that this PR extracts. The merge keeps `parse_browser_event` and adds `link_gesture()`, so the browser path was re-tested in real Chromium 153 (Playwright) with the same red-screen app.
+
+**Original 12 checks, unchanged:** all pass ([result](head-3324ea3/browser/result.json), [recording](head-3324ea3/browser/recording.webm), [event log](head-3324ea3/browser/events.jsonl)). There were 0 JavaScript page errors and no HTTP errors; the console again shows only a favicon 404 and the four expected protocol-rejection warnings.
+
+**New link checks (7):** one link region over the top-left of the content, served to a local HTTP target ([result](head-3324ea3/link/result.json), [events](head-3324ea3/link/events.jsonl)):
+
+| Check | Result |
+| --- | --- |
+| Primary mouse click inside the link opens the link once; the app receives no button events | Passed |
+| Mouse click outside the link reaches the app and opens nothing | Passed |
+| Press inside, release outside: nothing opens and the app receives no button events | Passed |
+| Touch tap inside the link opens it once; the app receives no touch events | Passed |
+| Touch tap outside reaches the app and opens nothing | Passed |
+| Keyboard input still works afterwards | Passed |
+| Explicit `close` stops the app with exit code 0 | Passed |
+
+The target saw exactly two page requests (one per opened link). Its `/favicon.ico` requests come from the opened tab, not from extra opens.
+
+**Negative control:** with `link_gesture` temporarily disabled in a scratch copy, the first link check fails (no link opens and the click reaches the app), so these checks do detect broken link handling ([result](head-3324ea3/link-negative-control/result.json)).
+
+Scripts are in [head-3324ea3/scripts](head-3324ea3/scripts). Unit-level and aiortc-peer link tests run in the CPU suite (567 CPU tests and the CUDA WebRTC test passed on this head; see the PR body).
+
+---
+
+# Results at head `77ecedd`
 
 The checks were rerun on merge head `77ecedd338bd0b184571cf30186031b49be0025b`, with locked dependencies and Python 3.12.13. A real Chromium end-to-end smoke test was added.
 

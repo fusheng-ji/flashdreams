@@ -1,0 +1,11 @@
+{
+  "webrtc_sender_queue_depth_count": 0,
+  "webrtc_sender_queue_capacity_count": 2,
+  "webrtc_sender_enqueued_count": 18,
+  "webrtc_sender_handed_off_count": 18,
+  "webrtc_sender_dropped_for_lag_count": 0,
+  "webrtc_sender_discarded_on_session_change_count": 0,
+  "webrtc_sender_discarded_on_close_count": 0,
+  "webrtc_sender_oldest_queue_age_s": 0.0,
+  "webrtc_sender_materialized_count": 120
+}

@@ -1,0 +1,12 @@
+{"type": "mouse", "fields": {"timestamp": 1662062, "action": "move", "x": 0.25, "y": 0.25, "button": 0, "pressed": false, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "focus", "fields": {"timestamp": 1664355, "focused": true}}
+{"type": "mouse", "fields": {"timestamp": 2928218, "action": "move", "x": 0.75, "y": 0.75, "button": 0, "pressed": false, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "mouse", "fields": {"timestamp": 2929811, "action": "button", "x": 0.75, "y": 0.75, "button": 0, "pressed": true, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "mouse", "fields": {"timestamp": 2931713, "action": "button", "x": 0.75, "y": 0.75, "button": 0, "pressed": false, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "mouse", "fields": {"timestamp": 4195032, "action": "move", "x": 0.25, "y": 0.25, "button": 0, "pressed": false, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "mouse", "fields": {"timestamp": 4211344, "action": "move", "x": 0.75, "y": 0.75, "button": 0, "pressed": false, "wheel_x": 0.0, "wheel_y": 0.0}}
+{"type": "touch", "fields": {"timestamp": 6695977, "action": "start", "touch_id": 0, "x": 0.75, "y": 0.75, "pressure": 1.0, "primary": true}}
+{"type": "touch", "fields": {"timestamp": 6696159, "action": "end", "touch_id": 0, "x": 0.75, "y": 0.75, "pressure": 1.0, "primary": false}}
+{"type": "keyboard", "fields": {"timestamp": 7952680, "key": "w", "state": "Pressed"}}
+{"type": "keyboard", "fields": {"timestamp": 7954468, "key": "w", "state": "Released"}}
+{"type": "close", "fields": {"timestamp": 8008032}}

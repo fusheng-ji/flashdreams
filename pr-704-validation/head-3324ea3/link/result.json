@@ -1,0 +1,67 @@
+{
+  "head": "3324ea30559b78586353a69704b5422c4f164f77",
+  "status": "passed",
+  "link_url": "http://127.0.0.1:35569/",
+  "link_bounds": [
+    0.1,
+    0.1,
+    0.4,
+    0.4
+  ],
+  "command": [
+    "<VENV>/bin/python",
+    "<REPO>/.claude/worktrees/open-pr-supplementary-experiments-c0eca3/artifacts/experiment-supplement-20261014-ablation/smoke-3324ea3/link_server.py"
+  ],
+  "checks": [
+    {
+      "name": "mouse-click-inside-opens-link-and-is-consumed",
+      "status": "passed",
+      "hits": 2
+    },
+    {
+      "name": "mouse-click-outside-reaches-app-and-opens-nothing",
+      "status": "passed"
+    },
+    {
+      "name": "mouse-press-inside-release-outside-opens-nothing",
+      "status": "passed"
+    },
+    {
+      "name": "touch-tap-inside-opens-link-and-is-consumed",
+      "status": "passed"
+    },
+    {
+      "name": "touch-tap-outside-reaches-app-and-opens-nothing",
+      "status": "passed"
+    },
+    {
+      "name": "keyboard-works-after-link-interactions",
+      "status": "passed"
+    },
+    {
+      "name": "explicit-close-stops-application",
+      "status": "passed"
+    }
+  ],
+  "console": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "page_errors": [],
+  "browser_version": "153.0.8010.12",
+  "content_bounds_px": {
+    "left": 0,
+    "top": 0,
+    "width": 960,
+    "height": 540
+  },
+  "server_exit_code": 0,
+  "target_requests": [
+    "/",
+    "/favicon.ico",
+    "/",
+    "/favicon.ico"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "head": "3324ea30559b78586353a69704b5422c4f164f77",
+  "status": "failed",
+  "link_url": "http://127.0.0.1:44821/",
+  "link_bounds": [
+    0.1,
+    0.1,
+    0.4,
+    0.4
+  ],
+  "command": [
+    "<VENV>/bin/python",
+    "<REPO>/.claude/worktrees/open-pr-supplementary-experiments-c0eca3/artifacts/experiment-supplement-20261014-ablation/smoke-3324ea3/link_server.py"
+  ],
+  "checks": [],
+  "console": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "page_errors": [],
+  "browser_version": "153.0.8010.12",
+  "content_bounds_px": {
+    "left": 0,
+    "top": 0,
+    "width": 960,
+    "height": 540
+  },
+  "failure": "Traceback (most recent call last):\n  File \"<REPO>/.claude/worktrees/open-pr-supplementary-experiments-c0eca3/artifacts/experiment-supplement-20261014-ablation/smoke-3324ea3/link_smoke.py\", line 113, in <module>\n    wait_until(lambda: opened() == base_hits + 1, \"link request after mouse click\")\n  File \"<REPO>/.claude/worktrees/open-pr-supplementary-experiments-c0eca3/artifacts/experiment-supplement-20261014-ablation/smoke-3324ea3/link_smoke.py\", line 68, in wait_until\n    raise AssertionError(f\"Timed out waiting for {what}: hits={hits}, events={events()[-6:]}\")\nAssertionError: Timed out waiting for link request after mouse click: hits=[], events=[{'type': 'mouse', 'fields': {'timestamp': 1565617, 'action': 'move', 'x': 0.25, 'y': 0.25, 'button': 0, 'pressed': False, 'wheel_x': 0.0, 'wheel_y': 0.0}}, {'type': 'focus', 'fields': {'timestamp': 1565854, 'focused': True}}, {'type': 'mouse', 'fields': {'timestamp': 1565971, 'action': 'button', 'x': 0.25, 'y': 0.25, 'button': 0, 'pressed': True, 'wheel_x': 0.0, 'wheel_y': 0.0}}, {'type': 'mouse', 'fields': {'timestamp': 1566688, 'action': 'button', 'x': 0.25, 'y': 0.25, 'button': 0, 'pressed': False, 'wheel_x': 0.0, 'wheel_y': 0.0}}]\n",
+  "server_exit_code": -15,
+  "target_requests": []
+}

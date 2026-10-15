@@ -1,0 +1,253 @@
+{
+  "head": "3324ea30559b78586353a69704b5422c4f164f77",
+  "status": "passed",
+  "command": [
+    "<VENV>/bin/python",
+    "<REPO>/.claude/worktrees/open-pr-supplementary-experiments-c0eca3/artifacts/experiment-supplement-20261014-ablation/smoke-3324ea3/browser_server.py"
+  ],
+  "checks": [
+    {
+      "name": "video-decoding",
+      "status": "passed",
+      "before": {
+        "time": 0.023,
+        "frames": 2,
+        "width": 320,
+        "height": 180,
+        "r": 0,
+        "g": 0,
+        "b": 0
+      },
+      "after": {
+        "time": 0.616,
+        "frames": 20,
+        "width": 320,
+        "height": 180,
+        "r": 0,
+        "g": 0,
+        "b": 0
+      }
+    },
+    {
+      "name": "keyboard-press-release-and-video",
+      "status": "passed",
+      "red": {
+        "time": 0.717,
+        "frames": 23,
+        "width": 320,
+        "height": 180,
+        "r": 254,
+        "g": 0,
+        "b": 2
+      },
+      "black": {
+        "time": 0.85,
+        "frames": 27,
+        "width": 320,
+        "height": 180,
+        "r": 0,
+        "g": 0,
+        "b": 0
+      }
+    },
+    {
+      "name": "mouse-touch-focus-events",
+      "status": "passed",
+      "focus_method": "actual element blur/focus with activeElement assertions"
+    },
+    {
+      "name": "device-and-reset-protocol-injection",
+      "status": "passed"
+    },
+    {
+      "name": "malformed-0",
+      "status": "passed",
+      "error": {
+        "type": "error",
+        "message": "Browser event must contain valid JSON."
+      }
+    },
+    {
+      "name": "malformed-1",
+      "status": "passed",
+      "error": {
+        "type": "error",
+        "message": "Mouse event action must be 'move', 'button', or 'wheel'."
+      }
+    },
+    {
+      "name": "malformed-2",
+      "status": "passed",
+      "error": {
+        "type": "error",
+        "message": "Mouse x must be finite."
+      }
+    },
+    {
+      "name": "malformed-3",
+      "status": "passed",
+      "error": {
+        "type": "error",
+        "message": "Browser event nesting is too deep."
+      }
+    },
+    {
+      "name": "input-and-video-survive-invalid-messages",
+      "status": "passed",
+      "before": {
+        "time": 2.952,
+        "frames": 85,
+        "width": 320,
+        "height": 180,
+        "r": 0,
+        "g": 0,
+        "b": 0
+      },
+      "after": {
+        "time": 3.452,
+        "frames": 100,
+        "width": 320,
+        "height": 180,
+        "r": 23,
+        "g": 0,
+        "b": 0
+      }
+    },
+    {
+      "name": "refresh-reconnect-without-server-restart",
+      "status": "passed",
+      "before": {
+        "time": 0,
+        "frames": 1,
+        "width": 320,
+        "height": 180,
+        "r": 25,
+        "g": 0,
+        "b": 0.0044444444444444444
+      },
+      "after": {
+        "time": 0.502,
+        "frames": 16,
+        "width": 320,
+        "height": 180,
+        "r": 50,
+        "g": 0,
+        "b": 0
+      }
+    },
+    {
+      "name": "nine-legal-protocol-types",
+      "status": "passed",
+      "types": [
+        "keyboard",
+        "mouse",
+        "focus",
+        "touch",
+        "gamepad",
+        "game_wheel",
+        "xr_controller",
+        "reset",
+        "close"
+      ]
+    },
+    {
+      "name": "explicit-close-stops-application",
+      "status": "passed"
+    }
+  ],
+  "console": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://127.0.0.1:33263/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "warning",
+      "text": "WebRTC server: Browser event must contain valid JSON.",
+      "location": {
+        "url": "http://127.0.0.1:33263/app.js",
+        "line": 94,
+        "column": 14,
+        "lineNumber": 94,
+        "columnNumber": 14
+      }
+    },
+    {
+      "type": "warning",
+      "text": "WebRTC server: Mouse event action must be 'move', 'button', or 'wheel'.",
+      "location": {
+        "url": "http://127.0.0.1:33263/app.js",
+        "line": 94,
+        "column": 14,
+        "lineNumber": 94,
+        "columnNumber": 14
+      }
+    },
+    {
+      "type": "warning",
+      "text": "WebRTC server: Mouse x must be finite.",
+      "location": {
+        "url": "http://127.0.0.1:33263/app.js",
+        "line": 94,
+        "column": 14,
+        "lineNumber": 94,
+        "columnNumber": 14
+      }
+    },
+    {
+      "type": "warning",
+      "text": "WebRTC server: Browser event nesting is too deep.",
+      "location": {
+        "url": "http://127.0.0.1:33263/app.js",
+        "line": 94,
+        "column": 14,
+        "lineNumber": 94,
+        "columnNumber": 14
+      }
+    }
+  ],
+  "http_errors": [],
+  "page_errors": [],
+  "protocol_injection": [
+    "keyboard",
+    "mouse",
+    "focus",
+    "touch",
+    "gamepad",
+    "game_wheel",
+    "xr_controller",
+    "reset",
+    "close"
+  ],
+  "injected_types": [
+    "keyboard",
+    "mouse",
+    "focus",
+    "touch",
+    "gamepad",
+    "game_wheel",
+    "xr_controller",
+    "reset",
+    "close"
+  ],
+  "device_protocol_only": [
+    "gamepad",
+    "game_wheel",
+    "xr_controller"
+  ],
+  "browser_version": "153.0.8010.12",
+  "replies": [
+    {
+      "type": "cursor_options",
+      "hide_cursor": false,
+      "lock_cursor_to_window": false
+    }
+  ],
+  "server_exit_code": 0
+}
